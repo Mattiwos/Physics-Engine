@@ -16,7 +16,7 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
 
     public Game(){ //consutructor
-        new Window(width, height, "Lets build a game", this);
+        new Window(width, height, "Physic Engine", this);
         handler = new Handler();
         handler.addObject(new Player(100,100,ID.Player));
     }
@@ -87,9 +87,10 @@ public class Game extends Canvas implements Runnable {
         }
         Graphics g = bs.getDrawGraphics();
 
-        handler.render(g);
+        
         g.setColor(Color.black);
         g.fillRect(0,0, width, height);
+        handler.render(g);
         
         
 
