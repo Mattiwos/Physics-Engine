@@ -1,6 +1,7 @@
 package com.tutorial.main;
-
+//https://www.youtube.com/watch?v=0T1U0kbu1Sk&list=PLWms45O3n--6TvZmtFHaCWRZwEqnz2MHa&index=2
 import java.awt.*;
+
 import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
@@ -8,13 +9,16 @@ public class Game extends Canvas implements Runnable {
      *
      */
     private static final long serialVersionUID = 1L;
-    
+
     public static final int width = 640, height = width / 12 * 9;
     private Thread thread;
     private boolean running = false;
+    private Handler handler;
 
     public Game(){ //consutructor
         new Window(width, height, "Lets build a game", this);
+        handler = new Handler();
+        handler.addObject(new Player(100,100,ID.Player));
     }
 
     public synchronized void start() {
@@ -73,7 +77,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick(){//update loop
-
+        handler.tick();
     }
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
@@ -83,8 +87,11 @@ public class Game extends Canvas implements Runnable {
         }
         Graphics g = bs.getDrawGraphics();
 
-        g.setColor(Color.green);
+        handler.render(g);
+        g.setColor(Color.black);
         g.fillRect(0,0, width, height);
+        
+        
 
         g.dispose();
         bs.show();
