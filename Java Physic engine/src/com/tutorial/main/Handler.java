@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Handler { //maintanes and updates all objects
     //will loop throgh all objects
-    LinkedList<GameObject> objects = new LinkedList<GameObject>();
+    LinkedList<GameObject> object = new LinkedList<GameObject>();
 
     public void tick(){
         for(int i = 0; i < object.size(); i++){ //loops through all obejcts
@@ -14,7 +14,7 @@ public class Handler { //maintanes and updates all objects
         }
     }
     public void render(Graphics g){
-        for(int i =0; i < objects.size(); i++){
+        for(int i =0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
             tempObject.render(g); //renders all objects
         }
