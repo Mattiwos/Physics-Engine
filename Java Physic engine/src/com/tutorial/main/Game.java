@@ -4,7 +4,12 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
-    public static final int width = 640, height = width/12 *9;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    
+    public static final int width = 640, height = width / 12 * 9;
     private Thread thread;
     private boolean running = false;
 

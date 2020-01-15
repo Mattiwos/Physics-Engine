@@ -3,6 +3,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Window extends Canvas {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    
     private int width;
     private int height;
     private String title;
