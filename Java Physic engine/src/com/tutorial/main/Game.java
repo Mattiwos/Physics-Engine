@@ -10,8 +10,9 @@ public class Game extends Canvas implements Runnable {
      *
      */
     private static final long serialVersionUID = 1L;
+    
 
-    public static final int width = Constants.windowWidth.getConst(), height = Constants.windowHeight.getConst();
+    public final int width = Constants.windowWidth, height = Constants.windowHeight;
     private Thread thread;
     private boolean running = false;
     private Handler handler;
@@ -20,7 +21,10 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         this.addKeyListener(new KeyInput(handler)); //tells the game to listen to keys
 
+        new GUIWindow(width, height, "GUI", this);
         new Window(width, height, "Physic Engine", this);
+
+        
         
         handler.addObject(new Rectangle(100,100,32,32,ID.Rectangle));
         handler.addObject(new Rectangle(200,100,50,50,ID.Rectangle));
@@ -31,6 +35,7 @@ public class Game extends Canvas implements Runnable {
 
     public synchronized void start() {
         thread = new Thread(this);
+        
         thread.start();
         running = true;
     }
@@ -110,11 +115,9 @@ public class Game extends Canvas implements Runnable {
     public static void main (String arg[]){ //First called
 
     
-    System.out.println(Constants.windowWidth.getConst());
-
-    // new GUIWindow(width, height, "GUI", this);
 
     new Game();
+    
     
 
     }

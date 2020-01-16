@@ -4,6 +4,8 @@ import java.awt.event.KeyEvent;
 
 public class KeyInput extends KeyAdapter{
     private Handler handler;
+    private Constants constants;
+    
     public KeyInput(Handler handler){
         this.handler = handler;
 
@@ -17,6 +19,7 @@ public class KeyInput extends KeyAdapter{
     }
     public void keyReleased(KeyEvent e){
         int key = e.getKeyCode();
+        System.out.println(key);
 
     }
 

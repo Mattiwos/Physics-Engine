@@ -6,6 +6,7 @@ public abstract class GameObject { //basic frame for all objects
     protected int x,y; //protected means the varables could only be changed by classes which inhierts it
     protected ID id;
     protected int velX, velY;
+    private Constants constants;
 
 
     public GameObject(int x, int y, ID id){

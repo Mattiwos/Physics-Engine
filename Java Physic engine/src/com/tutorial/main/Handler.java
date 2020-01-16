@@ -5,6 +5,8 @@ import java.awt.*;
 
 public class Handler { //maintanes and updates all objects
     //will loop throgh all objects
+    private Constants constants;
+    
     LinkedList<GameObject> object = new LinkedList<GameObject>();
 
     public void tick(){

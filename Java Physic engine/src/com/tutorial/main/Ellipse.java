@@ -7,6 +7,7 @@ public class Ellipse extends GameObject{
     private int width;
     private int height;
     
+    
     public Ellipse(int  x, int y,int initwidth,int initheight, ID id){
         super(x,y,id);//constructor for gameObject
         width = initwidth;
@@ -22,11 +23,11 @@ public class Ellipse extends GameObject{
         setX(getX()+getVelX());
         setY(getY()+getVelY());
         
-        if (getY() >= Constants.windowHeight.getConst() - height || getY() <0){
+        if (getY() >= Constants.windowHeight - height || getY() <0){
             setVolY(getVelY()*-1);
         }
 
-        if (getX() >= Constants.windowWidth.getConst() - width || getX() <= 0){
+        if (getX() >= Constants.windowWidth - width || getX() <= 0){
             
             setVolX(getVelX()*-1);
         }

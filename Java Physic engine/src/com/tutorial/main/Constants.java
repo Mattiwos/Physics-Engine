@@ -1,14 +1,9 @@
 package com.tutorial.main;
 
-public enum Constants{
-    windowWidth(1000), windowHeight(640);
-    private final int num;
 
-    Constants(int num){
-        this.num = num;
-    }
-    public int getConst(){
-        return this.num;
-    }
+public final class Constants{
+    public static int windowWidth = 1000;
+    public static int windowHeight = 640;
+    public static double Gravity = 0.7;
 
 }
