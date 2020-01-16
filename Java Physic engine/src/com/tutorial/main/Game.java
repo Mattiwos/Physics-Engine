@@ -11,7 +11,7 @@ public class Game extends Canvas implements Runnable {
      */
     private static final long serialVersionUID = 1L;
 
-    public static final int width = 640, height = width / 12 * 9;
+    public static final int width = Constants.windowWidth.getConst(), height = width / 12 * 9;
     private Thread thread;
     private boolean running = false;
     private Handler handler;
@@ -22,7 +22,7 @@ public class Game extends Canvas implements Runnable {
 
         new Window(width, height, "Physic Engine", this);
         
-        handler.addObject(new Player(100,100,32,32,ID.Player));
+        handler.addObject(new Rectangle(100,100,32,32,ID.Rectangle));
     }
    
     
@@ -67,7 +67,7 @@ public class Game extends Canvas implements Runnable {
             if(System.currentTimeMillis() - timer > 1000)
             {
                 timer += 1000;
-                System.out.println("FPS: "+ frames);
+                //System.out.println("FPS: "+ frames);
                 frames = 0;
             }
         }
@@ -107,7 +107,7 @@ public class Game extends Canvas implements Runnable {
     public static void main (String arg[]){ //First called
 
     
-    System.out.println(Constants.width);
+    System.out.println(Constants.windowWidth.getConst());
 
     // new GUIWindow(width, height, "GUI", this);
 
