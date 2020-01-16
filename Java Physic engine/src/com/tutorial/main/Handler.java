@@ -32,4 +32,5 @@ public class Handler { //maintanes and updates all objects
         this.object.remove(object);
     }
 
+   
 }

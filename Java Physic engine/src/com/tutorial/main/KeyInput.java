@@ -15,6 +15,9 @@ public class KeyInput extends KeyAdapter{
         int key = e.getKeyCode();
         System.out.println(key);
 
+        playerMovement(key);
+        
+
 
     }
     public void keyReleased(KeyEvent e){
@@ -22,6 +25,16 @@ public class KeyInput extends KeyAdapter{
         System.out.println(key);
 
     }
+    public void playerMovement(int key){
+        for (int i = 0; i < handler.object.size(); i++){
+            if (handler.object.get(i).getId() == ID.Player){
+                
+
+            }
+
+        }
+    }
+
 
 
 }
