@@ -1,7 +1,7 @@
 package com.tutorial.main;
 
 public enum Constants{
-    windowWidth(640), windowHeight(480);
+    windowWidth(1000), windowHeight(640);
     private final int num;
 
     Constants(int num){

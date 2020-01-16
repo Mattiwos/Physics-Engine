@@ -3,11 +3,11 @@ package com.tutorial.main;
 import java.awt.Color;
 import java.awt.*;
 
-public class Rectangle extends GameObject{
+public class Ellipse extends GameObject{
     private int width;
     private int height;
-
-    public Rectangle(int  x, int y,int initwidth,int initheight, ID id){
+    
+    public Ellipse(int  x, int y,int initwidth,int initheight, ID id){
         super(x,y,id);//constructor for gameObject
         width = initwidth;
         height = initheight;
@@ -17,6 +17,7 @@ public class Rectangle extends GameObject{
         
 
     }
+
     public void tick(){
         setX(getX()+getVelX());
         setY(getY()+getVelY());
@@ -32,18 +33,14 @@ public class Rectangle extends GameObject{
 
     }
     public void render(Graphics g){
-        g.setColor(Color.white);
-        g.fillRect(x,y,width,height);
+        g.setColor(Color.blue);
+        g.drawOval(x,y,width,height);
+        g.fillOval(x,y,width,height);
 
     }
     public void print(String arg){
         System.out.println(arg);
 
     }
-
-//javac com/tutorial/main/Game.java 
-//updates all files
-
-
 
 }

@@ -11,7 +11,7 @@ public class Game extends Canvas implements Runnable {
      */
     private static final long serialVersionUID = 1L;
 
-    public static final int width = Constants.windowWidth.getConst(), height = width / 12 * 9;
+    public static final int width = Constants.windowWidth.getConst(), height = Constants.windowHeight.getConst();
     private Thread thread;
     private boolean running = false;
     private Handler handler;
@@ -23,6 +23,8 @@ public class Game extends Canvas implements Runnable {
         new Window(width, height, "Physic Engine", this);
         
         handler.addObject(new Rectangle(100,100,32,32,ID.Rectangle));
+        handler.addObject(new Rectangle(200,100,50,50,ID.Rectangle));
+        handler.addObject(new Ellipse(150,200,50,50,ID.Ellipse));
     }
    
     
@@ -96,6 +98,7 @@ public class Game extends Canvas implements Runnable {
         
         g.setColor(Color.black);
         g.fillRect(0,0, width, height);
+
         handler.render(g);
         
         
