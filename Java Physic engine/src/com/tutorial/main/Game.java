@@ -2,6 +2,7 @@ package com.tutorial.main;
 //https://www.youtube.com/watch?v=0T1U0kbu1Sk&list=PLWms45O3n--6TvZmtFHaCWRZwEqnz2MHa&index=2
 import java.awt.*;
 
+
 import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
@@ -16,10 +17,15 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
 
     public Game(){ //consutructor
-        new Window(width, height, "Physic Engine", this);
         handler = new Handler();
-        handler.addObject(new Player(100,100,ID.Player));
+        this.addKeyListener(new KeyInput(handler)); //tells the game to listen to keys
+
+        new Window(width, height, "Physic Engine", this);
+        
+        handler.addObject(new Player(100,100,32,32,ID.Player));
     }
+   
+    
 
     public synchronized void start() {
         thread = new Thread(this);
@@ -100,8 +106,13 @@ public class Game extends Canvas implements Runnable {
 
     public static void main (String arg[]){ //First called
 
-    System.out.println("working");
+    
+    System.out.println(Constants.width);
+
+    // new GUIWindow(width, height, "GUI", this);
+
     new Game();
+    
 
     }
 
