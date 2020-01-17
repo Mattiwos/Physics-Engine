@@ -7,6 +7,7 @@ public class Window extends Canvas {
      *
      */
     private static final long serialVersionUID = 1L;
+    private Constants constants;
     
     private int width;
     private int height;
