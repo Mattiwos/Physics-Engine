@@ -16,6 +16,7 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
     private Handler handler;
+    public static int seconds;
 
     public Game(){ //consutructor
         handler = new Handler();
@@ -24,9 +25,10 @@ public class Game extends Canvas implements Runnable {
         new GUIWindow(width, height, "GUI", this);
         new Window(width, height, "Physic Engine", this);
 
+
         
         
-        handler.addObject(new Rectangle(100,100,32,32,ID.Rectangle));
+        //handler.addObject(new Rectangle(width -32,height -32,32,32,ID.Rectangle));
         handler.addObject(new Rectangle(200,100,50,50,ID.Rectangle));
         handler.addObject(new Ellipse(150,200,50,50,ID.Ellipse));
 
@@ -92,7 +94,10 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick(){//update loop
+        seconds = (int)((System.currentTimeMillis() / 1000) - 1579278075);
+
         handler.tick();
+        
     }
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
