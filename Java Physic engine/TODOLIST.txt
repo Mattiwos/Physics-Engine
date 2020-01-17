@@ -1,12 +1,15 @@
 Info:
 https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html
+
+
+
 contains all shapes possible
 
 To Do:
 +GUI to config
 +improve enum containing constants
 +Do research on physics and making a proper engine
-+
++Conllsion
 
 
 

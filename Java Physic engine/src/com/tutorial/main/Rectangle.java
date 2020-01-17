@@ -8,33 +8,38 @@ public class Rectangle extends GameObject{
     private int height;
     private Constants constants;
 
-    public Rectangle(int  x, int y,int initwidth,int initheight, ID id){
+    public Rectangle(double  x, double y,int initwidth,int initheight, ID id){
         super(x,y,id);//constructor for gameObject
         width = initwidth;
         height = initheight;
 
-        setVolX(5);
-        setVolY(5);
+        setVelX(5);
+        setVelY(5);
         
 
     }
     public void tick(){
-        setX(getX()+getVelX());
+
+        
+            //setVelX(getVelX() * Constants.Gravity);
+        setVelY(getVelY()* Constants.Gravity);
+        print(Double.toString(getVelY())); 
+        
+
+        
         setY(getY()+getVelY());
         
-        if (getY() >= Constants.windowHeight - height || getY() <0){
-            setVolY(getVelY()*-1);
+        if (getY() >= Constants.windowHeight - height || getY() <= 0){
+            setVelY(getVelY()*-1);
+            //print(Double.toString(getVelY()));
         }
 
-        if (getX() >= Constants.windowWidth - width || getX() <= 0){
-            
-            setVolX(getVelX()*-1);
-        }
+        
 
     }
     public void render(Graphics g){
         g.setColor(Color.white);
-        g.fillRect(x,y,width,height);
+        g.fillRect((int)x,(int)y,width,height);
 
     }
     public void print(String arg){
