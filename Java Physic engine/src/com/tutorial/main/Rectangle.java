@@ -15,14 +15,14 @@ public class Rectangle extends GameObject{
     private double timePassed = 0.0;
     private double currS = 0.0;
     private double startTime;
-    private double scale = 100;
+    private double scale = 10;
     private boolean initialQ = false;
 
     public Rectangle(double  x, double y,int initwidth,int initheight, ID id){
         super(x,y,id);//constructor for gameObject
         width = initwidth;
         height = initheight;
-        initVel = 1;
+        initVel = 12;
         setVelX(0);
         setVelY(initVel);
 
@@ -41,15 +41,18 @@ public class Rectangle extends GameObject{
             startTime = System.currentTimeMillis();
             initialQ = true;
         }
+ s
+
         currS = ((System.currentTimeMillis()-startTime)/1000D);
 
         System.out.println(currS +": seconds & y: "+ getY());
+        
 
         
         //System.out.println( (  (initVel*(Game.miliseconds /1000)) + ((1/2)*(Constants.acceleration)*((Game.miliseconds) /1000)) * (Game.miliseconds /1000)));
         //System.out.println(currenttimemili);
 
-        setY(  scale * ( (initVel*currS) + ((1/2)*((Constants.acceleration) * (currS*currS)))) );
+        setY(10*( (initVel*currS) + ((0.5)*((Constants.acceleration) * (currS*currS)))));
 
         
         
