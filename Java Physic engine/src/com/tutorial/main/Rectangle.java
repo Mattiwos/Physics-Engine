@@ -22,7 +22,7 @@ public class Rectangle extends GameObject{
         super(x,y,id);//constructor for gameObject
         width = initwidth;
         height = initheight;
-        initVel = 12;
+        initVel = 30;
         setVelX(0);
         setVelY(initVel);
 
@@ -41,7 +41,7 @@ public class Rectangle extends GameObject{
             startTime = System.currentTimeMillis();
             initialQ = true;
         }
- s
+ 
 
         currS = ((System.currentTimeMillis()-startTime)/1000D);
 
@@ -51,8 +51,13 @@ public class Rectangle extends GameObject{
         
         //System.out.println( (  (initVel*(Game.miliseconds /1000)) + ((1/2)*(Constants.acceleration)*((Game.miliseconds) /1000)) * (Game.miliseconds /1000)));
         //System.out.println(currenttimemili);
+        if (getY() <= 0){
+            initVel = 0.70 * initVel;
+            startTime = System.currentTimeMillis();
 
-        setY(10*( (initVel*currS) + ((0.5)*((Constants.acceleration) * (currS*currS)))));
+        }
+        double distY = scale*( (initVel*currS) + ((0.5)*((Constants.acceleration) * (currS*currS))));
+        setY(distY);
 
         
         
