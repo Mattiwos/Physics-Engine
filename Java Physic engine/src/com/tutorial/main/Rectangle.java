@@ -2,6 +2,7 @@ package com.tutorial.main;
 
 import java.awt.Color;
 import java.awt.*;
+import java.lang.Object;
 
 public class Rectangle extends GameObject{
     private int width;
@@ -22,7 +23,7 @@ public class Rectangle extends GameObject{
         super(x,y,id);//constructor for gameObject
         width = initwidth;
         height = initheight;
-        initVel = 30;
+        initVel = 50;
         setVelX(0);
         setVelY(initVel);
 
@@ -45,15 +46,31 @@ public class Rectangle extends GameObject{
 
         currS = ((System.currentTimeMillis()-startTime)/1000D);
 
-        System.out.println(currS +": seconds & y: "+ getY());
+        //System.out.println(currS +": seconds & y: "+ getY());
+        
+        /**
+        y = distance
+        y = (inital Velocity)x +(1/2)(accelration)(time^2) 
+        dY/dt = (inital Velocity) + (accelration)(time)
         
 
+         */
         
-        //System.out.println( (  (initVel*(Game.miliseconds /1000)) + ((1/2)*(Constants.acceleration)*((Game.miliseconds) /1000)) * (Game.miliseconds /1000)));
-        //System.out.println(currenttimemili);
+       
         if (getY() <= 0){
-            initVel = 0.70 * initVel;
+            /** 
+            double maxheight = (-initVel)/Constants.acceleration; //y = 12x +(1/2)(accelration)(time^2) and dY/dt = 12 + (accelration)(time)
+            maxheight = ( (initVel * maxheight) + ( (0.5)*(Constants.acceleration)*(maxheight *maxheight)) );
+
+            System.out.println("Max height: " + maxheight);
+            
+            initVel = Math.sqrt(Math.abs((double) (2 * (maxheight * Constants.acceleration) ) )) ;
+            */
+            initVel = initVel/2;
+            System.out.println("New initVel: " + initVel);
+
             startTime = System.currentTimeMillis();
+
 
         }
         double distY = scale*( (initVel*currS) + ((0.5)*((Constants.acceleration) * (currS*currS))));
@@ -61,7 +78,7 @@ public class Rectangle extends GameObject{
 
         
         
-        
+
         
         if (getY() >= Constants.windowHeight - height || getY() <= 0){
             setVelY(getVelY()*-1);

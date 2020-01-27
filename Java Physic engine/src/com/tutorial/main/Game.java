@@ -28,11 +28,10 @@ public class Game extends Canvas implements Runnable {
 
         
         
-        //handler.addObject(new Rectangle(width -32,height -32,32,32,ID.Rectangle));
-        handler.addObject(new Rectangle(400,0,50,50,ID.Rectangle));
-        handler.addObject(new Ellipse(150,200,50,50,ID.Ellipse));
-
-        //handler.addObject(new Player(150,200,50,100,ID.Player));
+        
+        handler.addObject(new Rectangle(400,10,50,50,ID.Rectangle));
+        
+        
     }
    
     
